@@ -1,35 +1,30 @@
-name: CI/CD Pipeline for PHP App
+name: CI/CD Pipeline
 
 on:
   push:
     branches:
-      - master
-  pull_request:
-    branches:
-      - master
+      - main
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout el código del repositorio
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # 2. Configuración PHP
-      - name: Setup PHP
+      - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.0'  
+          php-version: '8.0' # Cambia según tu versión de PHP
+          extensions: mbstring, xml, curl
 
-      - name: Install Heroku CLI
-        run: curl https://cli-assets.heroku.com/install.sh | sh
-    
+      - name: Install Composer Dependencies
+        run: composer install --no-dev
+
       - name: Deploy to Heroku
         env:
-            HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: |
-            heroku auth:token
-            heroku git:remote -a grupo8-app  
-            git push heroku master
+          git remote add heroku https://git.heroku.com/nombre-de-tu-aplicacion.git
+          git push heroku main

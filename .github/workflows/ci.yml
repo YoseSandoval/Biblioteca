@@ -19,9 +19,6 @@ jobs:
           php-version: '8.0' # Cambia según tu versión de PHP
           extensions: mbstring, xml, curl
 
-      - name: Install Composer Dependencies
-        run: composer install --no-dev
-
       - name: Deploy to Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}

@@ -1,1 +1,1 @@
-echo "web: index.php" > Procfile
+echo "web: Views/index.php" > Procfile

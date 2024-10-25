@@ -15,14 +15,13 @@ jobs:
     steps:
       # 1. Checkout el código del repositorio
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # 2. Configuración PHP
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.0'  
-          extensions: mbstring, ctype, xml, pdo_mysql 
 
       - name: Install Heroku CLI
         run: curl https://cli-assets.heroku.com/install.sh | sh

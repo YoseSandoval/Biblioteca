@@ -25,3 +25,4 @@ jobs:
         run: |
           git remote add heroku https://git:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/grupo8-app.git
           git push heroku master
+  

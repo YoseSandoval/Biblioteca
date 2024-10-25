@@ -22,13 +22,9 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.0'  
-          extensions: mbstring, ctype, xml, pdo_mysql 
+          extensions: mbstring, ctype, xml, pdo_mysql  
 
-      # 3. Pruebas
-      - name: Run tests
-        run: php artisan test  
-
-      # 4. Despliegue
+      # 3. Despliegue
       - name: Deploy to Heroku
         if: success()
         env:

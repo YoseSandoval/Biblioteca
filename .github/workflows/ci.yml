@@ -24,10 +24,6 @@ jobs:
           php-version: '8.0'  
           extensions: mbstring, ctype, xml, pdo_mysql  
 
-
-        - name: Install Heroku CLI
-        run: curl https://cli-assets.heroku.com/install.sh | sh
-
       - name: Authenticate with Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}

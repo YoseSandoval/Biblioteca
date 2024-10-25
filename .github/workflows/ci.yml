@@ -23,5 +23,5 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: |
-          git remote add heroku https://git.heroku.com/nombre-de-tu-aplicacion.git
+          git remote add heroku https://git.heroku.com/grupo8-app.git
           git push heroku master

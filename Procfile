@@ -1,1 +1,1 @@
-echo "web: Views/index.php" > Procfile
+echo "web: vendor/bin/heroku-php-apache2 public/" > Procfile

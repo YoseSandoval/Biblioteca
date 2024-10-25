@@ -23,17 +23,10 @@ jobs:
         with:
           php-version: '8.0'  
           extensions: mbstring, ctype, xml, pdo_mysql 
-        
-      - name: Install Heroku CLI
-        run: curl https://cli-assets.heroku.com/install.sh | sh      
 
-      - name: Authenticate with Heroku
+      - name: Deploy to Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: |
-          echo "$HEROKU_API_KEY" | heroku auth:token
-          heroku git:remote -a grupo8-app
-
-      - name: Deploy to Heroku
-        run: |
+          git remote add heroku https://git.heroku.com/grupo8-app.git
           git push heroku master
